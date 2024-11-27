@@ -6,7 +6,7 @@ import { useState, useContext } from "react";
 import { AppContext } from "./ThemedApp";
 
 export default function App() {
-    const { mode } = useContext(AppContext);
+    const { mode, setMode } = useContext(AppContext);
 
     const [ data, setData] = useState([
         { id: 1, content: "Hello, World!", name: "Alice"},
@@ -53,6 +53,21 @@ export default function App() {
                     color: "white",
                     }}>
                     {showForm ? "×" : "+"}
+                </button>
+                <button onClick={() =>
+                    setMode(mode === "dark" ? "light" : "dark")
+                }
+                style={{
+                    marginLeft: 0,
+                    padding: "0 20px",
+                    height: 32,
+                    borderRadius: 32,
+                    border: "0 none",
+                    background: mode === "dark" ? "#333" : "#ddd",
+                    color: mode === "dark" ? "white" : "black",
+                }}
+                >
+                    { mode === "dark" ? "Light" : "Dark"}
                 </button>
             </h1>
             {showForm && <Form add={add} />}
