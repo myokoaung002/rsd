@@ -1,6 +1,10 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+
+import { AppContext } from "./ThemedApp";
 
 export default function Form( {add}) {
+    const { mode } = useContext(AppContext);
+
     const contentRef = useRef();
     const nameRef = useRef();
 
@@ -12,7 +16,7 @@ export default function Form( {add}) {
             padding: 10,
             borderRadius: 8,
             marginBottom: 20,
-            background: "#def",
+            background: mode === "dark" ? "#555" : "#def",
         }}>
             <input 
                 type="text"

@@ -2,9 +2,12 @@ import List from "./List";
 import Item from "./Item";
 import Form from "./Form";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "./ThemedApp";
 
 export default function App() {
+    const { mode } = useContext(AppContext);
+
     const [ data, setData] = useState([
         { id: 1, content: "Hello, World!", name: "Alice"},
         { id: 2, content: "React is fun", name: "Bob" },
@@ -22,11 +25,21 @@ export default function App() {
     const [showForm, setShowForm] = useState(false);
 
     return (
-        <div style={{ maxWidth: 600, margin: "20px auto" }}>
+        <div style={{
+            minHeight: 1500,
+            background: mode === "dark" ? "black" : "white",
+            color: mode === "dark" ? "white" : "black",
+            paddingTop: 20,
+        }}>
+            <div style={{ 
+                maxWidth: 600, 
+                margin: "0 auto"
+            }}>
             <h1 style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                margin: "0 0 20px 0",
             }}>
                 YayCha
                 <button
@@ -55,6 +68,7 @@ export default function App() {
                     })
                 }
             </List>
+            </div>
         </div>
     );
 }
