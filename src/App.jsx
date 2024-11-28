@@ -42,33 +42,35 @@ export default function App() {
                 margin: "0 0 20px 0",
             }}>
                 YayCha
-                <button
-                    onClick={() => setShowForm(!showForm)}
+                <div>
+                    <button
+                        onClick={() => setShowForm(!showForm)}
+                        style={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: 50,
+                        border: "0 none",
+                        background: showForm ? "#dc3545" : "#0d6efd",
+                        color: "white",
+                        }}>
+                        {showForm ? "×" : "+"}
+                    </button>
+                    <button onClick={() =>
+                        setMode(mode === "dark" ? "light" : "dark")
+                    }
                     style={{
-                    width: 32,
-                    height: 32,
-                    borderRadius: 50,
-                    border: "0 none",
-                    background: showForm ? "#dc3545" : "#0d6efd",
-                    color: "white",
-                    }}>
-                    {showForm ? "×" : "+"}
-                </button>
-                <button onClick={() =>
-                    setMode(mode === "dark" ? "light" : "dark")
-                }
-                style={{
-                    marginLeft: 0,
-                    padding: "0 20px",
-                    height: 32,
-                    borderRadius: 32,
-                    border: "0 none",
-                    background: mode === "dark" ? "#333" : "#ddd",
-                    color: mode === "dark" ? "white" : "black",
-                }}
-                >
-                    { mode === "dark" ? "Light" : "Dark"}
-                </button>
+                        marginLeft: 8,
+                        padding: "0 20px",
+                        height: 32,
+                        borderRadius: 32,
+                        border: "0 none",
+                        background: mode === "dark" ? "#333" : "#ddd",
+                        color: mode === "dark" ? "white" : "black",
+                    }}
+                    >
+                        { mode === "dark" ? "Light" : "Dark"}
+                    </button>
+                </div>
             </h1>
             {showForm && <Form add={add} />}
             <List>
