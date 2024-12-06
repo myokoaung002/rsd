@@ -24,13 +24,13 @@ import { deepPurple } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 
 export default function AppDrawer() {
-    const { showDrawer, setShowDarwer, auth, setAuth } = useApp();
+    const { showDrawer, setShowDrawer, auth, setAuth } = useApp();
     const navigate = useNavigate();
     return (
         <div>
             <Drawer 
                 open={showDrawer}
-                onClose={() => setShowDarwer(false)}>
+                onClose={() => setShowDrawer(false)}>
 
                 <Box
                     sx={{
