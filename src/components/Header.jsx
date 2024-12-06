@@ -16,12 +16,12 @@ import {
 } from "@mui/icons-material";
 
 export default function Header () {
-    const { showForm, setShowForm, mode, setMode } = useApp();
+    const { setShowDrawer, showForm, setShowForm, mode, setMode } = useApp();
 
     return (
         <AppBar position="static">
             <Toolbar>
-                <IconButton color="inherit" edge="start">
+                <IconButton color="inherit" edge="start" onClick={() => setShowDrawer(true)}>
                     <MenuIcon />
                 </IconButton>
 
