@@ -14,6 +14,7 @@ import {
 
 import { green } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
+import { formatRelative } from  "date-fns";
 
 export default function Item ({ item, remove, primary }) {
     const navigate = useNavigate();
@@ -38,7 +39,7 @@ export default function Item ({ item, remove, primary }) {
                         variant="caption"
                         sx={{ color: green[500] }}
                     >
-                        A few second ago
+                        {formatRelative(item.created, new Date())}
                     </Typography>
                 </Box>
                 <IconButton
@@ -68,7 +69,7 @@ export default function Item ({ item, remove, primary }) {
                         color="info"
                     />
                     <Typography variant="caption">
-                        {item.name}
+                        {item.user.name}
                     </Typography>
                 </Box>
             </CardContent>
