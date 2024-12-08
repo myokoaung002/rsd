@@ -19,10 +19,11 @@ export default function Comments() {
             return res.json();
         });
 
-    const removePost = useMutation( async id => {
-        await fetch(`${api}/content/posts/${id}`, {
-            method: "DELETE",
-        });
+    const removePost = useMutation( 
+        async id => {
+            await fetch(`${api}/content/posts/${id}`, {
+                method: "DELETE",
+            });
 
         navigate("/");
         setGlobalMsg("A post deleted");
